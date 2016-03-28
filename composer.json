@@ -1,8 +1,8 @@
 {
 	"name": "kdyby/doctrine-collections-readonly",
 	"type": "library",
-	"description": "Fast-prototyping magic accessors trait for Doctrine entitites",
-	"keywords": ["kdyby", "doctrine", "orm", "dbal", "magic", "accessors"],
+	"description": "Read-only collection wrapper for easier work Doctrine entity collections",
+	"keywords": ["kdyby", "doctrine", "orm", "entity", "collection", "read-only", "readonly"],
 	"homepage": "http://kdyby.org",
 	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"authors": [
