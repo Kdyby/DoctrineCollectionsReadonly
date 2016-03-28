@@ -8,21 +8,18 @@
  * For the full copyright and license information, please view the file license.txt that was distributed with this source code.
  */
 
-namespace Kdyby\Doctrine\Collections;
+namespace Kdyby\DoctrineCollectionsReadonly;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Selectable;
-use Kdyby\Doctrine\NotSupportedException;
-use Kdyby\Doctrine\ReadOnlyCollectionException;
-use Nette\Object;
 
 /**
  * Read-only collection wrapper.
  * Prohibits any write/modify operations, but allows all non-modifying.
  * @author Michael Moravec
  */
-class ReadOnlyCollectionWrapper extends Object implements Collection, Selectable
+class ReadOnlyCollectionWrapper implements Collection, Selectable
 {
 	/** @var Collection */
 	private $inner;
