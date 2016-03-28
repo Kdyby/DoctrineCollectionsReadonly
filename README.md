@@ -32,7 +32,7 @@ public function getComments() : Collection
 }
 ```
 
-Now you can use the `Collection` api as you're used to, except modifying it :)
+Now you can use the `Collection` api as you're used to, you just cannot modifying it :)
 
 
 -----
