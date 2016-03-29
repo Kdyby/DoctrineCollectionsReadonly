@@ -25,7 +25,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Kdyby\\DoctrineCollectionsReadonly\\": "src/"
+			"Kdyby\\Doctrine\\Collections\\Readonly\\": "src/"
 		},
 		"classmap": [
 			"src/exceptions.php"
