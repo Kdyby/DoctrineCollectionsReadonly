@@ -4,12 +4,12 @@
  * @testCase
  */
 
-namespace KdybyTests\Doctrine;
+namespace KdybyTests\Doctrine\Collections\Readonly;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
-use Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionWrapper;
+use Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionWrapper;
 use Tester;
 use Tester\Assert;
 
@@ -47,7 +47,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 
 		Assert::exception(function () {
 			$this->readonly->add('foo');
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% add an element to %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% add an element to %A%');
 
 		Assert::true($this->inner->isEmpty());
 	}
@@ -60,7 +60,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 
 		Assert::exception(function () {
 			$this->readonly->clear();
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% clear %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% clear %A%');
 
 		Assert::same([1 => 1], $this->inner->toArray());
 	}
@@ -91,7 +91,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 
 		Assert::exception(function () {
 			$this->readonly->remove(1);
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
 
 		Assert::same([1 => 1], $this->inner->toArray());
 	}
@@ -104,7 +104,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 
 		Assert::exception(function () {
 			$this->readonly->removeElement(1);
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
 
 		Assert::same([1 => 1], $this->inner->toArray());
 	}
@@ -151,7 +151,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 	{
 		Assert::exception(function () {
 			$this->readonly->set(1, 2);
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% set an element in %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% set an element in %A%');
 
 		Assert::same([], $this->inner->toArray());
 	}
@@ -348,7 +348,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 	{
 		Assert::exception(function () {
 			$this->readonly->offsetSet(1, 2);
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% set an element in %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% set an element in %A%');
 
 		Assert::same([], $this->inner->toArray());
 	}
@@ -360,7 +360,7 @@ class ReadOnlyCollectionWrapperTest extends Tester\TestCase
 		$this->inner->set(1, 2);
 		Assert::exception(function () {
 			$this->readonly->offsetUnset(1);
-		}, 'Kdyby\DoctrineCollectionsReadonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
+		}, 'Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException', '%A% remove an element from %A%');
 
 		Assert::same([1 => 2], $this->inner->toArray());
 	}
