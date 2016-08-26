@@ -7,6 +7,7 @@ without having to copy the contents of the collection, or exposing the object's 
 [![Build Status](https://travis-ci.org/Kdyby/DoctrineCollectionsReadonly.svg?branch=master)](https://travis-ci.org/Kdyby/DoctrineCollectionsReadonly)
 [![Downloads this Month](https://img.shields.io/packagist/dm/kdyby/doctrine-collections-readonly.svg)](https://packagist.org/packages/kdyby/doctrine-collections-readonly)
 [![Latest stable](https://img.shields.io/packagist/v/kdyby/doctrine-collections-readonly.svg)](https://packagist.org/packages/kdyby/doctrine-collections-readonly)
+[![Coverage Status](https://coveralls.io/repos/github/Kdyby/DoctrineCollectionsReadonly/badge.svg?branch=master)](https://coveralls.io/github/Kdyby/DoctrineCollectionsReadonly?branch=master)
 [![Join the chat at https://gitter.im/Kdyby/Help](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Kdyby/Help)
 
 
