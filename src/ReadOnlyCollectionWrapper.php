@@ -282,7 +282,11 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	public function matching(Criteria $criteria)
 	{
 		if (!$this->inner instanceof Selectable) {
-			throw new NotSupportedException(sprintf('Collection %s does not implement Doctrine\Common\Collections\Selectable, so you cannot call ->matching() over it.', get_class($this->inner)));
+			throw new NotSupportedException(sprintf(
+				'Collection %s does not implement %s, so you cannot call ->matching() over it.',
+				Selectable::class,
+				get_class($this->inner)
+			));
 		}
 
 		return $this->inner->matching($criteria);
