@@ -23,6 +23,7 @@
 	"require-dev": {
 		"nette/tester": "~1.7"
 	},
+	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
 			"Kdyby\\Doctrine\\Collections\\Readonly\\": "src/"
