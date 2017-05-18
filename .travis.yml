@@ -29,9 +29,6 @@ matrix:
   allow_failures:
     - env:
 
-before_install:
-  - travis_retry composer self-update
-
 install:
   - travis_retry composer update --no-interaction --no-suggest --no-progress --prefer-dist $COMPOSER_EXTRA_ARGS
   - travis_retry composer create-project --no-interaction jakub-onderka/php-parallel-lint /tmp/php-parallel-lint
