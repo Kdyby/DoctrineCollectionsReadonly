@@ -9,8 +9,6 @@ without having to copy the contents of the collection, or exposing the object's 
 [![Latest stable](https://img.shields.io/packagist/v/kdyby/doctrine-collections-readonly.svg)](https://packagist.org/packages/kdyby/doctrine-collections-readonly)
 [![Coverage Status](https://coveralls.io/repos/github/Kdyby/DoctrineCollectionsReadonly/badge.svg?branch=master)](https://coveralls.io/github/Kdyby/DoctrineCollectionsReadonly?branch=master)
 
-
-
 Installation
 ------------
 
@@ -19,7 +17,6 @@ The best way to install Kdyby/DoctrineCollectionsReadonly is using  [Composer](h
 ```sh
 $ composer require kdyby/doctrine-collections-readonly
 ```
-
 
 Usage
 -----
@@ -34,7 +31,6 @@ public function getComments() : Collection
 ```
 
 Now you can use the `Collection` api as you're used to, you just cannot modifying it :)
-
 
 -----
 
