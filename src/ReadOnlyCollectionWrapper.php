@@ -10,6 +10,7 @@
 
 namespace Kdyby\Doctrine\Collections\Readonly;
 
+use Closure;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Selectable;
@@ -17,11 +18,11 @@ use Doctrine\Common\Collections\Selectable;
 /**
  * Read-only collection wrapper.
  * Prohibits any write/modify operations, but allows all non-modifying.
- * @author Michael Moravec
  */
-class ReadOnlyCollectionWrapper implements Collection, Selectable
+class ReadOnlyCollectionWrapper implements \Doctrine\Common\Collections\Collection, \Doctrine\Common\Collections\Selectable
 {
-	/** @var Collection */
+
+	/** @var \Doctrine\Common\Collections\Collection */
 	private $inner;
 
 	public function __construct(Collection $collection)
@@ -31,20 +32,22 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function add($element)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('add an element to');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('add an element to');
 	}
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function clear()
 	{
-		throw ReadOnlyCollectionException::invalidAccess('clear');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('clear');
 	}
 
 	/**
@@ -65,20 +68,22 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function remove($key)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('remove an element from');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('remove an element from');
 	}
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function removeElement($element)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('remove an element from');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('remove an element from');
 	}
 
 	/**
@@ -115,11 +120,12 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function set($key, $value)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('set an element in');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('set an element in');
 	}
 
 	/**
@@ -173,7 +179,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function exists(\Closure $p)
+	public function exists(Closure $p)
 	{
 		return $this->inner->exists($p);
 	}
@@ -181,7 +187,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function filter(\Closure $p)
+	public function filter(Closure $p)
 	{
 		return $this->inner->filter($p);
 	}
@@ -189,7 +195,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function forAll(\Closure $p)
+	public function forAll(Closure $p)
 	{
 		return $this->inner->forAll($p);
 	}
@@ -197,7 +203,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function map(\Closure $func)
+	public function map(Closure $func)
 	{
 		return $this->inner->map($func);
 	}
@@ -205,7 +211,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function partition(\Closure $p)
+	public function partition(Closure $p)
 	{
 		return $this->inner->partition($p);
 	}
@@ -221,7 +227,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	/**
 	 * {@inheritdoc}
 	 */
-	public function slice($offset, $length = null)
+	public function slice($offset, $length = NULL)
 	{
 		return $this->inner->slice($offset, $length);
 	}
@@ -252,20 +258,22 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function offsetSet($offset, $value)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('set an element in');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('set an element in');
 	}
 
 	/**
 	 * {@inheritdoc}
-	 * @throws ReadOnlyCollectionException
+	 *
+	 * @throws \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException
 	 */
 	public function offsetUnset($offset)
 	{
-		throw ReadOnlyCollectionException::invalidAccess('remove an element from');
+		throw \Kdyby\Doctrine\Collections\Readonly\ReadOnlyCollectionException::invalidAccess('remove an element from');
 	}
 
 	/**
@@ -282,7 +290,7 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 	public function matching(Criteria $criteria)
 	{
 		if (!$this->inner instanceof Selectable) {
-			throw new NotSupportedException(sprintf(
+			throw new \Kdyby\Doctrine\Collections\Readonly\NotSupportedException(sprintf(
 				'Collection %s does not implement %s, so you cannot call ->matching() over it.',
 				Selectable::class,
 				get_class($this->inner)
@@ -291,4 +299,5 @@ class ReadOnlyCollectionWrapper implements Collection, Selectable
 
 		return $this->inner->matching($criteria);
 	}
+
 }

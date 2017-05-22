@@ -32,6 +32,11 @@
 			"src/exceptions.php"
 		]
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"KdybyTests\\Doctrine\\Collections\\Readonly\\": "tests/"
+		}
+	},
 	"extra": {
 		"branch-alias": {
 			"dev-master": "1.0-dev"

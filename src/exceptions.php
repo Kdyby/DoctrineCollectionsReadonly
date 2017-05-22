@@ -15,29 +15,21 @@ interface Exception
 
 }
 
-
-
-/**
- * @author Michael Moravec
- */
-class ReadOnlyCollectionException extends \LogicException implements Exception
+class ReadOnlyCollectionException extends \LogicException implements \Kdyby\Doctrine\Collections\Readonly\Exception
 {
 
 	/**
-	 * @throws ReadOnlyCollectionException
+	 * @param string $what
+	 * @return static
 	 */
 	public static function invalidAccess($what)
 	{
 		return new static(sprintf('Could not %s read-only collection, write/modify operations are forbidden.', $what));
 	}
+
 }
 
-
-
-/**
- * @author Filip Procházka <filip@prochazka.su>
- */
-class NotSupportedException extends \LogicException implements Exception
+class NotSupportedException extends \LogicException implements \Kdyby\Doctrine\Collections\Readonly\Exception
 {
 
 }
